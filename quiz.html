@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <title>Kuiz Bahasa Isyarat Malaysia</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="quiz.css">
+</head>
+
+<body>
+
+<!-- 🎵 MUZIK LATAR -->
+<audio id="muzik" autoplay loop>
+    <source src="music/quiz_music.mp3" type="audio/mp3">
+</audio>
+
+<div class="quiz-container">
+
+    <!-- NAV ATAS -->
+    <div class="nav-atas">
+        <a href="index.html" class="btn-kembali">⬅ Halaman Utama</a>
+        <button class="btn-music" onclick="toggleMusic()">🔊</button>
+    </div>
+
+    <h1>🧠 Kuiz Bahasa Isyarat Malaysia</h1>
+
+    <!-- SOALAN -->
+    <div id="soalan-box">
+        <img id="gambar-soalan" src="" alt="Gambar Soalan">
+        <h2 id="soalan"></h2>
+
+        <div class="jawapan">
+            <button id="btn0" onclick="jawab(0)"></button>
+            <button id="btn1" onclick="jawab(1)"></button>
+            <button id="btn2" onclick="jawab(2)"></button>
+        </div>
+    </div>
+
+    <!-- BUTANG NEXT -->
+    <button id="nextBtn" onclick="soalanSeterusnya()" disabled>
+        Soalan Seterusnya ➡️
+    </button>
+
+    <!-- KEPUTUSAN -->
+    <div id="keputusan" class="hidden"></div>
+
+</div>
+
+<script src="quiz.js"></script>
+</body>
+</html>

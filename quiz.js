@@ -1,0 +1,173 @@
+const soalanQuiz = [
+    {
+        soalan: "Apakah isyarat ini?",
+        gambar: "images/quiz/A.png",
+        jawapan: ["A", "B", "C"],
+        betul: 0
+    },
+    {
+        soalan: "Apakah isyarat ini?",
+        gambar: "images/quiz/C.png",
+        jawapan: ["B", "D", "C"],
+        betul: 2
+    },
+    {
+        soalan: "Apakah isyarat ini?",
+        gambar: "images/quiz/L.png",
+        jawapan: ["K", "L", "M"],
+        betul: 1
+    },
+    {
+        soalan: "Apakah isyarat ini?",
+        gambar: "images/quiz/W.png",
+        jawapan: ["V", "W", "X"],
+        betul: 1
+    },
+    {
+        soalan: "Apakah isyarat ini?",
+        gambar: "images/quiz/Z.png",
+        jawapan: ["X", "Y", "Z"],
+        betul: 2
+    },
+    {
+        soalan: "Apakah isyarat ini?",
+        gambar: "images/quiz/Hello.png",
+        jawapan: ["Apa Khabar", "Hello", "Selamat Pagi"],
+        betul: 1
+    },
+    {
+        soalan: "Apakah isyarat ini?",
+        gambar: "images/quiz/maaf.png",
+        jawapan: ["Hello", "Sama-sama", "Maaf"],
+        betul: 2
+    },
+    {
+        soalan: "Apakah isyarat ini?",
+        gambar: "images/quiz/selamat_jalan.png",
+        jawapan: ["Terima Kasih", "Selamat Jalan", "Apa Khabar"],
+        betul: 1
+    },
+	{
+        soalan: "Apakah isyarat ini?",
+        gambar: "images/quiz/apa_khabar.png",
+        jawapan: ["Hello", "Apa Khabar", "Selamat Jalan"],
+        betul: 1
+    },
+    {
+        soalan: "Apakah isyarat ini?",
+        gambar: "images/quiz/selamat_pagi.png",
+        jawapan: ["Selamat Petang", "Selamat Pagi", "Selamat Malam"],
+        betul: 1
+    }
+];
+
+let index = 0;
+let markah = 0;
+let sudahJawab = false;
+
+const soalanEl = document.getElementById("soalan");
+const gambarEl = document.getElementById("gambar-soalan");
+const btns = [
+    document.getElementById("btn0"),
+    document.getElementById("btn1"),
+    document.getElementById("btn2")
+];
+const nextBtn = document.getElementById("nextBtn");
+const keputusanEl = document.getElementById("keputusan");
+
+/* =========================
+   PAPAR SOALAN
+========================= */
+paparSoalan();
+
+function paparSoalan() {
+    sudahJawab = false;
+    nextBtn.disabled = true;
+
+    const q = soalanQuiz[index];
+    soalanEl.textContent = `Soalan ${index + 1}: ${q.soalan}`;
+    gambarEl.src = q.gambar;
+
+    btns.forEach((btn, i) => {
+        btn.textContent = q.jawapan[i];
+        btn.className = "";
+        btn.disabled = false;
+    });
+}
+
+/* =========================
+   JAWAB SOALAN
+========================= */
+function jawab(pilihan) {
+    if (sudahJawab) return;
+    sudahJawab = true;
+
+    const betul = soalanQuiz[index].betul;
+
+    if (pilihan === betul) {
+        btns[pilihan].classList.add("betul");
+        markah++;
+    } else {
+        btns[pilihan].classList.add("salah");
+        btns[betul].classList.add("betul");
+    }
+
+    btns.forEach(btn => btn.disabled = true);
+    nextBtn.disabled = false;
+}
+
+/* =========================
+   SOALAN SETERUSNYA
+========================= */
+function soalanSeterusnya() {
+    index++;
+    if (index < soalanQuiz.length) {
+        paparSoalan();
+    } else {
+        tamatQuiz();
+    }
+}
+
+/* =========================
+   TAMAT QUIZ
+========================= */
+function tamatQuiz() {
+    document.getElementById("soalan-box").classList.add("hidden");
+    nextBtn.classList.add("hidden");
+
+    keputusanEl.classList.remove("hidden");
+    keputusanEl.innerHTML = `
+        <h2>🎉 Tahniah!</h2>
+        <p>Markah anda:</p>
+        <h1>${markah} / ${soalanQuiz.length}</h1>
+
+        <button id="ulangBtn" onclick="ulangKuiz()">🔁 Ulang Kuiz</button><br><br>
+        
+    `;
+}
+
+/* =========================
+   ULANG QUIZ
+========================= */
+function ulangKuiz() {
+    index = 0;
+    markah = 0;
+
+    document.getElementById("soalan-box").classList.remove("hidden");
+    nextBtn.classList.remove("hidden");
+    keputusanEl.classList.add("hidden");
+
+    paparSoalan();
+}
+
+/* =========================
+   MUSIC
+========================= */
+const muzik = document.getElementById("muzik");
+let musicOn = true;
+
+function toggleMusic() {
+    if (musicOn) muzik.pause();
+    else muzik.play();
+    musicOn = !musicOn;
+}

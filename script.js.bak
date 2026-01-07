@@ -1,0 +1,120 @@
+const kandungan = document.getElementById("kandungan");
+
+/* =========================
+   1️⃣ ABJAD A–Z
+========================= */
+for (let i = 65; i <= 90; i++) {
+    const huruf = String.fromCharCode(i);
+
+    binaKadDenganVideo(
+        "abjad",
+        "Abjad " + huruf,
+        "./images/abjad/" + huruf + ".png",
+        "./videos/abjad/" + huruf + ".mp4"
+    );
+}
+
+/* =========================
+   2️⃣ UCAPAN HARIAN
+========================= */
+const ucapanHarian = [
+    { tajuk: "Selamat Pagi", fail: "selamat_pagi" },
+    { tajuk: "Selamat Tengah Hari", fail: "selamat_tengah_hari" },
+    { tajuk: "Selamat Petang", fail: "selamat_petang" },
+    { tajuk: "Selamat Malam", fail: "selamat_malam" },
+    { tajuk: "Hello", fail: "hai" },
+    { tajuk: "Apa Khabar", fail: "apa_khabar" },
+    { tajuk: "Terima Kasih", fail: "terimakasih" },
+    { tajuk: "Sama-sama", fail: "samasama" },
+    { tajuk: "Maaf", fail: "maaf" },
+    { tajuk: "Selamat Jalan", fail: "selamat_jalan" }
+];
+
+ucapanHarian.forEach(item => {
+    binaKadDenganVideo(
+        "ucapan",
+        item.tajuk,
+        "./images/ucapan/" + item.fail + ".png",
+        "./videos/ucapan/" + item.fail + ".mp4"
+    );
+});
+
+/* =========================
+   3️⃣ NOMBOR (AR) – 1 QR SAHAJA
+========================= */
+binaKadQR(
+    "nombor-ar",
+    "Belajar Nombor Menggunakan AR",
+    "./images/qr/qr_nombor_ar.png"
+);
+
+/* =========================
+   FUNGSI BINA KAD VIDEO
+========================= */
+function binaKadDenganVideo(kategori, tajuk, gambar, video) {
+    const kad = document.createElement("div");
+    kad.className = "kad-isyarat " + kategori;
+
+    kad.innerHTML = `
+        <img src="${gambar}" alt="${tajuk}" class="gambar-isyarat">
+        <h2>${tajuk}</h2>
+        <video class="video-isyarat" controls style="display:none;">
+            <source src="${video}" type="video/mp4">
+        </video>
+    `;
+
+    const img = kad.querySelector(".gambar-isyarat");
+    const videoEl = kad.querySelector(".video-isyarat");
+
+    /* Klik gambar → video */
+    img.addEventListener("click", () => {
+        img.style.display = "none";
+        videoEl.style.display = "block";
+        videoEl.currentTime = 0;
+        videoEl.play();
+    });
+
+    /* Video tamat → kembali gambar */
+    videoEl.addEventListener("ended", () => {
+        videoEl.style.display = "none";
+        img.style.display = "block";
+    });
+
+    kandungan.appendChild(kad);
+}
+
+/* =========================
+   FUNGSI KAD QR (AR)
+========================= */
+function binaKadQR(kategori, tajuk, qrImage) {
+    const kad = document.createElement("div");
+    kad.className = "kad-isyarat " + kategori;
+
+    kad.innerHTML = `
+        <img src="${qrImage}" alt="QR Nombor AR" class="qr-ar">
+        <h2>${tajuk}</h2>
+        <p class="status-belajar">
+            📱 Muat turun <b>Assemblr Studio</b> dan imbas QR ini untuk melihat AR nombor
+        </p>
+    `;
+
+    kandungan.appendChild(kad);
+}
+
+/* =========================
+   TAPIS KATEGORI
+========================= */
+function tapisKategori(kategori) {
+    const semuaKad = document.querySelectorAll(".kad-isyarat");
+
+    semuaKad.forEach(kad => {
+        kad.style.display = kad.classList.contains(kategori)
+            ? "block"
+            : "none";
+    });
+}
+
+/* =========================
+   PAPAR ABJAD SEBAGAI DEFAULT
+========================= */
+tapisKategori("abjad");

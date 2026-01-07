@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <title>Kuiz Bahasa Isyarat BIM</title>
+    <link rel="stylesheet" href="quiz.css">
+</head>
+<body>
+
+<div class="quiz-container">
+
+    <h1>🧠 Kuiz Bahasa Isyarat Malaysia</h1>
+
+    <div id="soalan-box">
+        <img id="gambar-soalan" src="" alt="Soalan BIM">
+        <h2 id="soalan"></h2>
+
+        <div class="jawapan">
+            <button onclick="jawab(0)" id="btn0"></button>
+            <button onclick="jawab(1)" id="btn1"></button>
+            <button onclick="jawab(2)" id="btn2"></button>
+        </div>
+    </div>
+
+    <button id="nextBtn" onclick="soalanSeterusnya()" disabled>
+        Soalan Seterusnya ➡️
+    </button>
+
+    <div id="keputusan" class="hidden"></div>
+
+</div>
+
+<script src="quiz.js"></script>
+</body>
+</html>

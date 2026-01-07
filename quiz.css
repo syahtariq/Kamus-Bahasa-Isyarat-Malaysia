@@ -1,0 +1,211 @@
+/* =========================
+   WARNA ASAS QUIZ
+========================= */
+:root {
+    --merah: #D32F2F;
+    --merah-gelap: #B71C1C;
+    --kuning: #FFD600;
+    --hijau: #66BB6A;
+    --biru: #0288D1;
+}
+
+/* =========================
+   BODY + BACKGROUND
+========================= */
+body {
+    margin: 0;
+    font-family: 'Nunito', sans-serif;
+
+    background-image: url("images/background/quiz_bg.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* =========================
+   CONTAINER QUIZ
+========================= */
+.quiz-container {
+    max-width: 650px;
+    width: 90%;
+    background: rgba(255, 255, 255, 0.92);
+    padding: 25px;
+    border-radius: 25px;
+    box-shadow: 0 8px 18px rgba(0,0,0,0.25);
+    text-align: center;
+}
+
+/* =========================
+   NAV ATAS
+========================= */
+.nav-atas {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.btn-kembali {
+    text-decoration: none;
+    font-weight: bold;
+    color: var(--biru);
+    background-color: #E1F5FE;
+    padding: 8px 18px;
+    border-radius: 20px;
+}
+
+.btn-kembali:hover {
+    background-color: #B3E5FC;
+}
+
+.btn-music {
+    border: none;
+    background-color: var(--kuning);
+    font-size: 18px;
+    border-radius: 50%;
+    width: 42px;
+    height: 42px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* =========================
+   GAMBAR SOALAN
+========================= */
+#gambar-soalan {
+    width: 100%;
+    max-height: 280px;
+    object-fit: contain;
+    border-radius: 18px;
+    margin: 15px 0;
+}
+
+/* =========================
+   SOALAN
+========================= */
+#soalan {
+    font-size: 22px;
+    font-weight: 800;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+/* =========================
+   BUTANG JAWAPAN (MERAH + KUNING)
+========================= */
+.jawapan button {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    margin: 12px 0;
+    border-radius: 40px;
+    border: none;
+
+    font-size: 16px;
+    font-weight: 800;
+
+    background: linear-gradient(135deg, var(--merah), var(--merah-gelap));
+    color: var(--kuning);
+
+    cursor: pointer;
+    transition: 0.3s ease;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.25);
+}
+
+.jawapan button:hover {
+    transform: scale(1.05);
+    background: linear-gradient(135deg, #F44336, var(--merah));
+}
+
+/* =========================
+   STATUS JAWAPAN
+========================= */
+.betul {
+    background: linear-gradient(135deg, var(--hijau), #43A047) !important;
+    color: white !important;
+}
+
+.salah {
+    background: linear-gradient(135deg, var(--merah), var(--merah-gelap)) !important;
+    color: var(--kuning) !important;
+}
+
+/* =========================
+   BUTANG NEXT
+========================= */
+#nextBtn {
+    margin-top: 20px;
+    padding: 14px 36px;
+    font-size: 17px;
+    border-radius: 40px;
+    border: none;
+
+    background: linear-gradient(135deg, var(--hijau), #43A047);
+    color: white;
+    font-weight: bold;
+
+    cursor: pointer;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.25);
+}
+
+#nextBtn:hover {
+    transform: scale(1.05);
+}
+
+/* =========================
+   KEPUTUSAN AKHIR
+========================= */
+#keputusan {
+    font-size: 22px;
+    font-weight: bold;
+    color: #2E7D32;
+    margin-top: 20px;
+}
+
+/* =========================
+   BUTANG ULANG QUIZ
+========================= */
+#ulangBtn {
+    margin-top: 15px;
+    padding: 14px 36px;
+    font-size: 16px;
+    border-radius: 40px;
+    border: none;
+
+    background: linear-gradient(135deg, #FF7043, #F4511E);
+    color: white;
+    font-weight: bold;
+
+    cursor: pointer;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.25);
+}
+
+#ulangBtn:hover {
+    transform: scale(1.05);
+}
+
+/* =========================
+   UTILITI
+========================= */
+.hidden {
+    display: none;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+    #soalan {
+        font-size: 18px;
+    }
+
+    .jawapan button {
+        font-size: 15px;
+    }
+}

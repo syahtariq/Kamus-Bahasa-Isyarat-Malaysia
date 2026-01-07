@@ -1,0 +1,200 @@
+/* =========================
+   QUIZ BIM - STYLE PENUH
+========================= */
+
+/* GLOBAL */
+* {
+    box-sizing: border-box;
+}
+
+/* =========================
+   BODY & BACKGROUND QUIZ
+========================= */
+body {
+    margin: 0;
+    font-family: 'Nunito', sans-serif;
+
+    /* BACKGROUND QUIZ */
+    background-image: url("images/background/quiz_bg.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* =========================
+   CONTAINER UTAMA QUIZ
+========================= */
+.quiz-container {
+    max-width: 650px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.92); /* lut sinar */
+    padding: 25px;
+    border-radius: 25px;
+    box-shadow: 0 8px 18px rgba(0,0,0,0.25);
+    text-align: center;
+}
+
+/* =========================
+   NAV ATAS
+========================= */
+.nav-atas {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.btn-kembali {
+    text-decoration: none;
+    font-weight: bold;
+    color: #0288D1;
+    background-color: #E1F5FE;
+    padding: 8px 18px;
+    border-radius: 25px;
+    transition: 0.3s;
+}
+
+.btn-kembali:hover {
+    background-color: #B3E5FC;
+}
+
+.btn-music {
+    border: none;
+    background-color: #FFD54F;
+    font-size: 18px;
+    border-radius: 50%;
+    width: 42px;
+    height: 42px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-music:hover {
+    background-color: #FFCA28;
+    transform: scale(1.1);
+}
+
+/* =========================
+   SOALAN
+========================= */
+#soalan {
+    font-size: 22px;
+    margin-bottom: 15px;
+    color: #01579B;
+}
+
+#gambar-soalan {
+    width: 100%;
+    max-height: 300px;
+    object-fit: contain;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* =========================
+   JAWAPAN
+========================= */
+.jawapan button {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    margin: 12px 0;
+    border-radius: 40px;
+    border: none;
+    font-size: 16px;
+    font-weight: 800;
+
+    background: linear-gradient(135deg, #4FC3F7, #81D4FA);
+    color: white;
+
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.jawapan button:hover {
+    transform: scale(1.05);
+    background: linear-gradient(135deg, #29B6F6, #4FC3F7);
+}
+
+/* =========================
+   STATUS JAWAPAN
+========================= */
+.betul {
+    background-color: #81C784 !important;
+    color: white;
+}
+
+.salah {
+    background-color: #E57373 !important;
+    color: white;
+}
+
+/* =========================
+   BUTANG NEXT
+========================= */
+#nextBtn {
+    margin-top: 20px;
+    padding: 14px 36px;
+    font-size: 17px;
+    border-radius: 40px;
+    border: none;
+
+    background: linear-gradient(135deg, #81C784, #66BB6A);
+    color: white;
+    font-weight: bold;
+
+    cursor: pointer;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.25);
+    transition: 0.3s;
+}
+
+#nextBtn:hover {
+    transform: scale(1.05);
+}
+
+/* =========================
+   BUTANG ULANG KUIZ
+========================= */
+.btn-ulang {
+    margin-top: 15px;
+    padding: 12px 30px;
+    border-radius: 30px;
+    border: none;
+    font-weight: bold;
+    background-color: #FFD54F;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-ulang:hover {
+    background-color: #FFCA28;
+    transform: scale(1.05);
+}
+
+/* =========================
+   UTILITI
+========================= */
+.hidden {
+    display: none;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+    .quiz-container {
+        margin: 15px;
+        padding: 20px;
+    }
+
+    #soalan {
+        font-size: 18px;
+    }
+}

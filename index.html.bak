@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <title>Kamus Isyarat BIM</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header class="header">
+    <h1>KAMUS BAHASA ISYARAT MALAYSIA</h1>
+    <p>Pembelajaran Bahasa Isyarat Malaysia untuk Kanak-kanak</p>
+</header>
+
+<!-- BANNER -->
+<section class="banner">
+    <div class="banner-text">
+        <h2>Belajar Bahasa Isyarat Malaysia</h2>
+        <p>Abjad • Ucapan Harian • Nombor (AR)</p>
+        <a href="#kandungan" class="banner-btn">Mula Belajar</a>
+    </div>
+</section>
+
+<!-- MENU KATEGORI -->
+<nav class="kategori">
+    <button onclick="tapisKategori('abjad')">Abjad</button>
+    <button onclick="tapisKategori('ucapan')">Ucapan Harian</button>
+    <button onclick="tapisKategori('nombor')">Nombor (AR)</button>
+</nav>
+
+<!-- KANDUNGAN -->
+<main class="grid-isyarat" id="kandungan">
+    <!-- Kandungan dijana secara automatik oleh script.js -->
+</main>
+
+<!-- BUTANG BAWAH -->
+<div class="bahagian-bawah">
+    <a href="quiz.html" class="btn-belajar-besar">
+        🎯 Cuba Kuiz BIM
+    </a>
+</div>
+
+<!-- FOOTER MENARIK -->
+<footer class="footer">
+    <p>© 2026 Kamus Bahasa Isyarat Malaysia (BIM)</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
